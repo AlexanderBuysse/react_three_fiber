@@ -11,7 +11,7 @@ import {editable as e} from '@theatre/r3f'
 export function CardLifestyle(props) {
   const { nodes, materials } = useGLTF('/card-lifestyle/card_lifestyle-transformed.glb')
   return (
-    <e.group theatreKey="card" {...props} dispose={null}>
+    <e.group theatreKey="card lifestyle" {...props} dispose={null}>
       <mesh geometry={nodes.Cube.geometry} material={materials['card lifestyle']} />
      </e.group>
   )

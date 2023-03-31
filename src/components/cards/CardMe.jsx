@@ -5,13 +5,14 @@ Command: npx gltfjsx@6.1.4 card_me.glb --transform
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import {editable as e} from '@theatre/r3f'
 
 export function CardMe(props) {
   const { nodes, materials } = useGLTF('/card-me/card_me-transformed.glb')
   return (
-    <group {...props} dispose={null}>
+    <e.group theatreKey='card me' {...props} dispose={null}>
       <mesh geometry={nodes.card_me.geometry} material={materials['card lifestyle.003']} />
-    </group>
+    </e.group>
   )
 }
 
