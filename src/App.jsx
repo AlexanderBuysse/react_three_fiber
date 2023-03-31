@@ -1,5 +1,5 @@
 import './App.css'
-import React from 'react'
+import React, {useState} from 'react'
 import {Canvas} from '@react-three/fiber'
 import {SheetProvider} from '@theatre/r3f'
 import {getProject} from '@theatre/core'
@@ -20,15 +20,22 @@ const sceneSheet = project.sheet('Main Scene');
 
 
 const App = () => {
+  const [clickOnLife, setclickOnLife] = useState(false)
+  if(clickOnLife) {
+    sceneSheet.sequence.play({iterationCount: 1, range: [0, 2]})
+  }
   
   return (
-    <div>
+    <div className='container'>
       <Canvas>
         <SheetProvider sheet={sceneSheet}>
           <MainScene />
-          <CardScene project={project}/>
+          <CardScene project={project} setclickOnLife={setclickOnLife} clickOnLife={clickOnLife} />
         </SheetProvider>
       </Canvas>
+      <div className='text_container'>
+        <p className='p-tag'>dit is een p tag</p>
+      </div>
     </div>
     
   )
